@@ -4,7 +4,7 @@ namespace Moxposer.Runner;
 
 public class DllScanner
 {
-    public static IEnumerable<ScannedDllResult> ScanProjects(string rootDirectory)
+    public IEnumerable<ScannedDllResult> ScanProjects(string rootDirectory)
     {
         var results = new List<ScannedDllResult>();
         var csprojFiles = FindCsprojFiles(rootDirectory);
@@ -42,16 +42,17 @@ public class DllScanner
     {
         var whitelist = new HashSet<string>();
         var doc = XDocument.Load(csprojPath);
-        XNamespace msbuild = "http://schemas.microsoft.com/developer/msbuild/2003";
 
         // Extract packages from ItemGroup with DllAnalyzerWhitelist=true attribute
-        var whitelistedItemGroups = doc.Descendants(msbuild + "ItemGroup")
-                                  .Where(ig => (string)ig.Attribute("DllAnalyzerWhitelist") == "true");
+        var whitelistedItemGroups = doc.Descendants()
+                                      .Where(d => d.Name.LocalName == "ItemGroup" && (string)d.Attribute("DllAnalyzerWhitelist") == "true");
 
         foreach (var itemGroup in whitelistedItemGroups)
         {
-            var packages = itemGroup.Descendants(msbuild + "PackageReference")
+            var packages = itemGroup.Descendants()
+                                .Where(d => d.Name.LocalName == "PackageReference")
                                 .Select(pr => pr.Attribute("Include").Value);
+
             foreach (var package in packages)
             {
                 whitelist.Add(package);
@@ -59,9 +60,10 @@ public class DllScanner
         }
 
         // Extract individual packages with DllAnalyzerWhitelist=true attribute
-        var whitelistedPackages = doc.Descendants(msbuild + "PackageReference")
-                                 .Where(pr => (string)pr.Attribute("DllAnalyzerWhitelist") == "true")
+        var whitelistedPackages = doc.Descendants()
+                                 .Where(d => d.Name.LocalName == "PackageReference" && (string)d.Attribute("DllAnalyzerWhitelist") == "true")
                                  .Select(pr => pr.Attribute("Include").Value);
+
         foreach (var package in whitelistedPackages)
         {
             whitelist.Add(package);
@@ -69,6 +71,7 @@ public class DllScanner
 
         return whitelist;
     }
+
 
     private static IEnumerable<string> GetDllsInProject(string projectPath)
     {

@@ -14,7 +14,8 @@ Parser.Default.ParseArguments<Options>(args)
         Environment.Exit(1);
     });
 
-var scannedResults = DllScanner.ScanProjects(rootDirectory);
+var scanner = new DllScanner();
+var scannedResults = scanner.ScanProjects(rootDirectory);
 
 bool hasIssues = false;
 
