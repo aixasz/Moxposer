@@ -58,7 +58,4 @@ Moxposer is a diagnostic tool tailored to safeguard .NET applications against un
 
 Moxposer is [MIT licensed](https://github.com/aixasz/Moxposer/blob/dev/LICENSE).
 
----
-
-Note: You might need to replace placeholders like `[your_repository_url]`, `path_to_your_logo_if_any`, `link_to_detailed_docs_if_any`, etc., with actual URLs or paths as applicable.
 
