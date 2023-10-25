@@ -32,7 +32,7 @@ jobs:
       run: dotnet build --no-restore --configuration Release
 
     - name: Test Analyzer
-      run: dotnet test --no-restore --verbosity normal ./test/Moxposer.Analyzer.Tests/Moxposer.Analyzer.Tests.csproj
+      run: dotnet test --no-restore --verbosity normal ./test/Moxposer.Analyzer.Tests
 
     - name: Test Runner
-      run: dotnet test --no-restore --verbosity normal ./test/Moxposer.Runner.Tests/Moxposer.Runner.Tests.csproj
+      run: dotnet test --no-restore --verbosity normal ./test/Moxposer.Runner.Tests
