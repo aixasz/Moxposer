@@ -1,5 +1,8 @@
 ﻿using CommandLine;
+using Microsoft.Extensions.DependencyInjection;
 using Moxposer.Runner;
+
+var serviceProvider = DependencyInjection.GetServiceProvider();
 
 var rootDirectory = Directory.GetCurrentDirectory();
 
@@ -14,10 +17,15 @@ Parser.Default.ParseArguments<Options>(args)
         Environment.Exit(1);
     });
 
-var scanner = new DllScanner();
+var scanner = serviceProvider.GetService<IDllScanner>()
+    ?? throw new InvalidOperationException($"Unable to resolve {nameof(IDllScanner)} from the service provider.");
+
 var scannedResults = scanner.ScanProjects(rootDirectory);
 
 bool hasIssues = false;
+
+var dllAnalyzer = serviceProvider.GetService<IDllAnalyzer>()
+    ?? throw new InvalidOperationException($"Unable to resolve {nameof(IDllAnalyzer)} from the service provider.");
 
 foreach (var result in scannedResults)
 {
@@ -34,7 +42,7 @@ foreach (var result in scannedResults)
     {
         Console.WriteLine($"Analyzing project: {result.ProjectPath}");
 
-        var analysisResult = DllAnalyzer.AnalyzeDll(dllResult);
+        var analysisResult = dllAnalyzer.AnalyzeDll(dllResult);
 
         if (analysisResult.IsObfuscated)
         {

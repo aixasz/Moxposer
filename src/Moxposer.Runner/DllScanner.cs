@@ -2,7 +2,12 @@
 
 namespace Moxposer.Runner;
 
-public class DllScanner
+public interface IDllScanner
+{
+    IEnumerable<ScannedDllResult> ScanProjects(string rootDirectory);
+}
+
+public class DllScanner : IDllScanner
 {
     public IEnumerable<ScannedDllResult> ScanProjects(string rootDirectory)
     {

@@ -1,4 +1,4 @@
-namespace Moxposer.Runner.Tests;
+namespace Moxposer.Runner.Tests.Integrations;
 
 /// <summary>
 /// <para>Integration tests for the DllScanner class.</para>
