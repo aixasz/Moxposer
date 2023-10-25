@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moxposer.Runner", "src\Moxp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{25379A27-80AF-4864-97A1-27C1269B26E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moxposer.Analyzer.Test", "test\Moxposer.Analyzer.Test\Moxposer.Analyzer.Test.csproj", "{FA4FE498-9299-451D-B6C5-3CB934783C85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moxposer.Analyzer.Tests", "test\Moxposer.Analyzer.Tests\Moxposer.Analyzer.Tests.csproj", "{FA4FE498-9299-451D-B6C5-3CB934783C85}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moxposer.Runner.Tests", "test\Moxposer.Runner.Tests\Moxposer.Runner.Tests.csproj", "{385EB649-09AE-4E27-A83F-6A2A9FA381B0}"
 EndProject
