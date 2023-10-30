@@ -34,13 +34,21 @@ public class DllAnalyzer : IDllAnalyzer
             return result;
         }
 
-        var decompiledCode = _decompilerService.Decompile(dllPath);
-        var diagnostics = AnalyzeCode(decompiledCode);
-
-        if (diagnostics.Any())
+        try
         {
-            result.HasSuspiciousCode = true;
-            result.Diagnostics.AddRange(diagnostics);
+            var decompiledCode = _decompilerService.Decompile(dllPath);
+            var diagnostics = AnalyzeCode(decompiledCode);
+
+            if (diagnostics.Any())
+            {
+                result.HasSuspiciousCode = true;
+                result.Diagnostics.AddRange(diagnostics);
+            }
+        }
+        catch (Exception ex)
+        {
+            result.AnalyzedSuccessfully = false;
+            result.ErrorMessage = ex.Message;
         }
 
         return result;

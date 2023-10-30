@@ -27,6 +27,7 @@ bool hasIssues = false;
 var dllAnalyzer = serviceProvider.GetService<IDllAnalyzer>()
     ?? throw new InvalidOperationException($"Unable to resolve {nameof(IDllAnalyzer)} from the service provider.");
 
+var report = new AnalysisReport();
 foreach (var result in scannedResults)
 {
     if (result.SkippedDlls.Any())
@@ -40,7 +41,7 @@ foreach (var result in scannedResults)
 
     foreach (var dllResult in result.DllsToAnalyze)
     {
-        Console.WriteLine($"Analyzing project: {result.ProjectPath}");
+        Console.WriteLine($"Analyzing DLL: {dllResult}");
 
         var analysisResult = dllAnalyzer.AnalyzeDll(dllResult);
 
@@ -49,7 +50,8 @@ foreach (var result in scannedResults)
             Console.WriteLine($"Package {analysisResult.DllPath} appears to be obfuscated.");
             hasIssues = true;
         }
-        else if (analysisResult.HasSuspiciousCode)
+
+        if (analysisResult.HasSuspiciousCode)
         {
             Console.WriteLine($"Suspicious usage detected in {analysisResult.DllPath}:");
             foreach (var diagnostic in analysisResult.Diagnostics)
@@ -57,9 +59,24 @@ foreach (var result in scannedResults)
                 Console.WriteLine(diagnostic);
             }
             hasIssues = true;
+
+            report.IncrementTotalSuspicious();
+        }
+
+        if (!analysisResult.AnalyzedSuccessfully)
+        {
+            Console.WriteLine($"Failed during analyze in {analysisResult.DllPath}:");
+            Console.WriteLine(analysisResult.ErrorMessage);
+            report.IncrementFailedAnalyses();
+        }
+        else
+        {
+            report.IncrementAnalyzedSuccessfully();
         }
     }
 }
+
+Console.WriteLine(report);
 
 if (hasIssues)
 {
