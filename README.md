@@ -32,9 +32,19 @@ Moxposer is a diagnostic tool tailored to safeguard .NET applications against un
    dotnet test
    ```
 
-4. **Integrate in Your Project**
+4. **Analyze Your Project**
 
-   [Instructions on how to use the analyzer in other projects]
+   To analyze the current directory
+
+   ```bash
+   moxposer.runner
+   ```
+
+   or specify path to analyze
+   
+   ```bash
+   moxposer.runner -p [Path of C# project or path contains DLL files to analyze]
+   ```
 
 ## 💡 Use Cases
 
@@ -44,10 +54,33 @@ Moxposer is a diagnostic tool tailored to safeguard .NET applications against un
 
 ## 🛠️ Customization
 
-- **Whitelisting Packages:** Moxposer provides flexibility in exempting certain packages or libraries from analysis. [Details on how to whitelist]
+- **Whitelisting Packages:** Moxposer provides flexibility in exempting certain packages or libraries from analysis. 
+  
 
 ## 📄 Documentation
 
+### Global Whitelist Configuration 
+
+Open `appsettings.json` then added whitelist dll name to `GlobalWhitelists` property.  
+   ```json
+   {
+      "GlobalWhitelists": [
+         "Microsoft.*",
+         "System.*"
+      ]
+   }
+   ```
+
+### specifying which whitelist packages to in `csproj`.
+
+Extract package names from PackageReference tags under ItemGroup tags that have the attribute `DllAnalyzerWhitelist="true"`
+
+example:
+```xml
+  <ItemGroup DllAnalyzerWhitelist="true">
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.7.0" />
+  </ItemGroup>
+```
 
 
 ## 🤝 Contributing
