@@ -1,27 +1,49 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net7.0</TargetFramework>
+		<PackAsTool>true</PackAsTool>
+		<ToolCommandName>moxposer</ToolCommandName>
+		<PackageId>Moxposer.Runner</PackageId>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Version>0.0.1</Version>
+		<Authors>Nattapong Nunpan</Authors>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>Safeguard .NET applications against potentially harmful HttpClient usage patterns.</Description>
+		<PackageProjectUrl>https://github.com/aixasz/Moxposer</PackageProjectUrl>
+		<NeutralLanguage>en</NeutralLanguage>
+		<PackageTags>Moxposer</PackageTags>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="CommandLineParser" Version="2.9.1" />
-    <PackageReference Include="ICSharpCode.Decompiler" Version="8.1.1.7464" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CommandLineParser" Version="2.*" />
+		<PackageReference Include="ICSharpCode.Decompiler" Version="8.*" />
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.*" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.*" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Moxposer.Analyzer\Moxposer.Analyzer.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Moxposer.Analyzer\Moxposer.Analyzer.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="appsettings.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
 
 </Project>
