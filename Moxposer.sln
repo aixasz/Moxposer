@@ -13,7 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{25379A27-8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moxposer.Analyzer.Tests", "test\Moxposer.Analyzer.Tests\Moxposer.Analyzer.Tests.csproj", "{FA4FE498-9299-451D-B6C5-3CB934783C85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moxposer.Runner.Tests", "test\Moxposer.Runner.Tests\Moxposer.Runner.Tests.csproj", "{385EB649-09AE-4E27-A83F-6A2A9FA381B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moxposer.Runner.Tests", "test\Moxposer.Runner.Tests\Moxposer.Runner.Tests.csproj", "{385EB649-09AE-4E27-A83F-6A2A9FA381B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "experiment", "experiment", "{377C9CDB-9A80-48B8-9637-4D14A07237A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "artifacts", "artifacts", "{BF32D281-F69D-4696-A800-72BD70F74159}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moxposer.Experiments", "experiment\Moxposer.Experiments\Moxposer.Experiments.csproj", "{F7693C61-ADA8-4FB7-9EC8-67DD6C76F67F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +43,10 @@ Global
 		{385EB649-09AE-4E27-A83F-6A2A9FA381B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{385EB649-09AE-4E27-A83F-6A2A9FA381B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{385EB649-09AE-4E27-A83F-6A2A9FA381B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7693C61-ADA8-4FB7-9EC8-67DD6C76F67F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7693C61-ADA8-4FB7-9EC8-67DD6C76F67F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7693C61-ADA8-4FB7-9EC8-67DD6C76F67F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7693C61-ADA8-4FB7-9EC8-67DD6C76F67F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +56,8 @@ Global
 		{A55DD1EA-359F-469F-BED0-7D23733105F8} = {E39E0B06-AC21-4C28-9C8F-5D03F31FFD69}
 		{FA4FE498-9299-451D-B6C5-3CB934783C85} = {25379A27-80AF-4864-97A1-27C1269B26E0}
 		{385EB649-09AE-4E27-A83F-6A2A9FA381B0} = {25379A27-80AF-4864-97A1-27C1269B26E0}
+		{BF32D281-F69D-4696-A800-72BD70F74159} = {377C9CDB-9A80-48B8-9637-4D14A07237A5}
+		{F7693C61-ADA8-4FB7-9EC8-67DD6C76F67F} = {377C9CDB-9A80-48B8-9637-4D14A07237A5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BC02A1E2-0C9A-4031-844A-87B970244B6F}
