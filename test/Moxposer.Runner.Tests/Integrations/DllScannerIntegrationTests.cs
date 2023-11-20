@@ -65,7 +65,7 @@ public class DllScannerIntegrationTests : IDisposable
         }
     }
 
-    private void CreateTestProject(string rootDirectory, string projectName)
+    private static void CreateTestProject(string rootDirectory, string projectName)
     {
         var projectDir = Path.Combine(rootDirectory, projectName);
         Directory.CreateDirectory(projectDir);
@@ -97,6 +97,5 @@ public class DllScannerIntegrationTests : IDisposable
         File.Create(Path.Combine(binDir, "MockLib3.dll")).Dispose();
         File.Create(Path.Combine(binDir, "UnreferencedMockLib.dll")).Dispose(); // This is an unreferenced mock DLL.
     }
-
 
 }

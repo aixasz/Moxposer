@@ -57,7 +57,6 @@ class TestClass
         Assert.Equal(DiagnosticSeverity.Warning, actualDiagnostic.Severity);
     }
 
-
     [Fact]
     public async void AnalyzeNode_WhenHttpClientPatchesHardcodedUrl_DetectsSuspiciousUsage()
     {
@@ -83,7 +82,6 @@ class TestClass
         Assert.Equal("HttpClient might be sending data to http://example.com", actualDiagnostic.GetMessage());
         Assert.Equal(DiagnosticSeverity.Warning, actualDiagnostic.Severity);
     }
-
 
     [Fact]
     public async void AnalyzeNode_WhenHttpClientPostsVariableUrl_DoesNotDetectSuspiciousUsage()
@@ -163,5 +161,4 @@ class TestClass
         Assert.Equal("HttpClient might be sending data to http://example.com", actualDiagnostic.GetMessage());
         Assert.Equal(DiagnosticSeverity.Warning, actualDiagnostic.Severity);
     }
-
 }
