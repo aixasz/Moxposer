@@ -21,7 +21,7 @@ public abstract class AnalyzerTest
         var compilationWithAnalyzers = compilation.WithAnalyzers(analyzers);
         var diagnostics = await compilationWithAnalyzers.GetAnalyzerDiagnosticsAsync();
 
-        return diagnostics.ToList();
+        return [.. diagnostics];
     }
 
     private static Project CreateProject(string source, IEnumerable<MetadataReference> references)
