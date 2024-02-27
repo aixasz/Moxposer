@@ -1,5 +1,8 @@
 # Moxposer - HttpClient Usage Analyzer for .NET 🛡️
 
+[![build](https://github.com/aixasz/Moxposer/actions/workflows/dotnet_build_test.yml/badge.svg)](https://github.com/aixasz/Moxposer/actions/workflows/dotnet_build_test.yml) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/aixasz/Moxposer/blob/dev/LICENSE)
+
 Moxposer is a diagnostic tool tailored to safeguard .NET applications against unintended or potentially harmful `HttpClient` usage patterns. If you're building applications with sensitive data and want to ensure data doesn't unknowingly leak to external sources via the `HttpClient` class, Moxposer is here to help!
 
 ## 🌟 Features
