@@ -1,10 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<Authors>Nattapong Nunpan</Authors>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>Safeguard .NET applications against potentially harmful HttpClient usage patterns.</Description>
+		<PackageProjectUrl>https://github.com/aixasz/Moxposer</PackageProjectUrl>
+		<NeutralLanguage>en</NeutralLanguage>
+		<PackageTags>Moxposer</PackageTags>
 	</PropertyGroup>
 
 	<ItemGroup>

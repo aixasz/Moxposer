@@ -11,5 +11,5 @@ public class AnalysisResult
     public bool SignedDlls { get; set; }
 
     public string ErrorMessage { get; set; }
-    public List<Diagnostic> Diagnostics { get; } = new List<Diagnostic>();
+    public List<Diagnostic> Diagnostics { get; } = [];
 }
