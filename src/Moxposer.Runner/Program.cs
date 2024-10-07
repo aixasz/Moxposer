@@ -30,7 +30,7 @@ var dllAnalyzer = serviceProvider.GetService<IDllAnalyzer>()
 var report = new AnalysisReport();
 foreach (var result in scannedResults)
 {
-    if (result.SkippedDlls.Any())
+    if (result.SkippedDlls.Count != 0)
     {
         Console.WriteLine("Skipped the following whitelisted DLLs:");
         foreach (var skippedDll in result.SkippedDlls)

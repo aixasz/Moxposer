@@ -8,7 +8,7 @@ public static class DependencyInjection
     public static ServiceProvider GetServiceProvider()
     {
         var serviceProvider = new ServiceCollection()
-           .AddSingleton<IDecompilerService, DecompilerService>()
+           .AddSingleton<IAssemblyDecompiler, AssemblyDecompiler>()
            .AddSingleton<IDllScanner, DllScanner>()
            .AddTransient<IDllAnalyzer, DllAnalyzer>()
            .BuildServiceProvider();
