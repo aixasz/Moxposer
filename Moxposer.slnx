@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Moxposer.Analyzer/Moxposer.Analyzer.csproj" />
+    <Project Path="src/Moxposer.Runner/Moxposer.Runner.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/Moxposer.Analyzer.Tests/Moxposer.Analyzer.Tests.csproj" />
+    <Project Path="test/Moxposer.Runner.Tests/Moxposer.Runner.Tests.csproj" />
+  </Folder>
+</Solution>
